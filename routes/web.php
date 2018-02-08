@@ -33,6 +33,10 @@ Route::group(['middleware'=>'auth'], function (){
    //admin
     Route::group(['middleware'=>'admin'], function (){
         Route::get('/admin', 'Admin\AccountController@index')->name('admin');
+        Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
+        Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
+        Route::get('/categories/edit/{id}', 'Admin\CategoriesController@editCategory')->name('categories.edit');
+        Route::get('/categories/delete/{id}', 'Admin\CategoriesController@deleteCategory')->name('categories.delete');
     });
 
 });
