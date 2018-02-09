@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Category;
 
 class Article extends Model
 {
@@ -31,4 +32,8 @@ class Article extends Model
        'created_at',
        'updated_at',
    ];
+   public function categories()
+   {
+       return $this->belongsToMany('App\Category', 'category_articles','article_id','category_id' );
+   }
 }

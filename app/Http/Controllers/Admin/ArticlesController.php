@@ -53,10 +53,44 @@ class ArticlesController extends Controller
     }
     public function editArticle($id)
     {
+        $objCategory = new Category();
+        $categories = $objCategory->get();
 
+        $objArticle = Article::find($id);
+        if(!$objArticle){
+            return abort(404);
+        }
+
+        dd($objArticle->categories);
+        return view('admin.articles.edit', [
+            'categories' => $categories,
+            'article'=>$objArticle,
+            ]);
+    }
+    public function editRequestArticle(ArticleRequest $request,$id)
+    {
+        $objArticle = Article::find($id);
+        if(!$objArticle){
+            return abort(404);
+        }
+
+        $objArticle->title = $request->input('title');
+        $objArticle->author = $request->input('author');
+        $objArticle->short_text = $request->input('short_text');
+        $objArticle->full_text = $request->input('full_text');
+
+        if($objArticle->save()){
+            return redirect()->route('articles')->with('success', 'статья успешно обновленна');
+        }
+        return back()->with('error', 'Не удалось изменить статью');
     }
     public function deleteArticle(Request $request)
     {
-
+        if($request->ajax()){
+            $id = $request->input('id');
+            $objArticle = new Article();
+            $objArticle -> where('id', $id)->delete();
+            echo "success";
+        }
     }
 }
