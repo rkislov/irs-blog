@@ -10,13 +10,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}"rel="stylesheet">
+    <link href="{{ asset('css/login.css') }}"rel="stylesheet">
 
 
 </head>
 
 <body class="text-center">
 <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div >
         <form class="form-signin" method="post">
             {!!  csrf_field() !!}
             <h1 class="h3 mb-3 font-weight-normal">Пожалуйста зарегистрируйтесь</h1>
@@ -36,6 +37,9 @@
         </form>
     </div>
 </div>
-
+<script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/alertify.js') }}"></script>
+@include('inc.messages')
 </body>
 </html>

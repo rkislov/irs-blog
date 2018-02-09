@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{!! route('categories') !!}">
                             <span data-feather="file"></span>
                             Категороии
                         </a>
@@ -61,7 +61,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="bar-chart-2"></span>
-                            Коментарии
+                            Комментарии
                         </a>
                     </li>
 
@@ -78,5 +78,8 @@
 
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/alertify.js') }}"></script>
+@yield('js')
+@include('inc.messages')
 </body>
 </html>

@@ -52,17 +52,14 @@ class RegisterController extends Controller
             $this->validator($request->all())->validate();
         }
         catch(\Exception $e) {
-            dd('Чтотот пошло не так', $e);
+           return back()->with('error', $e->getMessage());
         }
-       // event(new Registered($user = $this->create($request->all())));
 
-        //$this->guard()->login($user);
         $email = $request->input('email');
         $password = $request->input('password');
         $isAuth = $request->input('remember') ? True: False;
         $objUser = $this->create(['email'=>$email, 'password'=>$password]);
         if(!($objUser instanceof User)){
-            // throw \Exception('Can not create object User');
             return back()->with('error', "Cant create object");
         }
         if($isAuth){

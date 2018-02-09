@@ -35,6 +35,9 @@
         </form>
     </div>
 </div>
-
+<script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/alertify.js') }}"></script>
+@include('inc.messages')
 </body>
 </html>
