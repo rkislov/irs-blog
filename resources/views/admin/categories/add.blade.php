@@ -12,6 +12,8 @@
         <p>Описание категории:<br>
         <textarea name="description" class="form-control"></textarea></p>
         <button type="submit" class="btn btn-success" style="cursor: pointer; float: right;">Добавить</button>
+            <br>
+            <br>
         </form>
 
 
